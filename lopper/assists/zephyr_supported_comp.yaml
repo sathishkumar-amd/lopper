@@ -81,6 +81,7 @@ arm,pl011:
     - status
     - interrupts
     - interrupt-parent
+    - interrupt-names
 
 arm,sbsa-uart:
   required:
@@ -88,6 +89,7 @@ arm,sbsa-uart:
     - reg
     - interrupts
     - interrupt-parent
+    - interrupt-names
 
 xlnx,xps-iic-2.00.a:
   required:
@@ -164,9 +166,17 @@ cpus,cluster:
 arm,cortex-r52:
   required:
     - compatible
+    - device_type
+    - reg
+    - clock-frequency
+
+arm,cortex-a78:
+  required:
+    - compatible
     - device_type 
     - reg
     - clock-frequency
+    - enable-method
 
 arm,armv8-timer:
   required:
@@ -232,5 +242,18 @@ xlnx,pmc-gpio-1.0:
     - compatible
     - reg
     - interrupts
+    - '#address-cells'
+    - '#size-cells'
+
+xlnx,xps-spi-2.00.a:
+  required:
+    - compatible
+    - reg
+    - interrupts
+    - xlnx,num-ss-bits
+    - xlnx,num-transfer-bits
+    - fifo-size
+    - xlnx,startup-block
+    - interrupt-parent
     - '#address-cells'
     - '#size-cells'
